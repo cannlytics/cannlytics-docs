@@ -1,0 +1,8 @@
+{
+  "hosting": [
+    {
+      "target": "docs",
+      "public": "build"
+    }
+  ]
+}
