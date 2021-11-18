@@ -27,3 +27,6 @@ We hold ourselves to the following minimal security requirements.
 - We will abide by all State security policies in States that we operate in:
   * <https://it.nv.gov/Governance/Security/State_Security_Policies_Standards___Procedures/>
 
+
+  <!-- - [Add Google Cloud Armor](https://cloud.google.com/blog/products/identity-security/google-cloud-armor-features-to-protect-your-websites-and-applications?utm_source=release-notes&utm_medium=email&utm_campaign=2020-aug-release-notes-1-en) -->
+
