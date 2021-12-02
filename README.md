@@ -37,13 +37,13 @@ Documentation for the project is written in [Markdown](https://guides.github.com
 
 ```shell
 docker pull squidfunk/mkdocs-material
-docker build -t squidfunk/mkdocs-material docs
+docker build -t squidfunk/mkdocs-material ./
 ```
 
 Once setup, you can preview the documentation as you write:
 
 ```shell
-docker run --rm -it -p 8000:8000 -v squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v "%cd%":/docs squidfunk/mkdocs-material
 ```
 
 or
