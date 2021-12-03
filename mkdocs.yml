@@ -266,25 +266,25 @@ nav:
     - Testing: developers/testing.md
     - Version control: developers/version_control.md
     - Bugs: developers/bugs.md
-    - Modules:
-      - Firebase:
-        - Overview: cannlytics/firebase/firebase.md
-        - API reference: cannlytics/firebase/firebase-reference.md
-      - LIMS:
-        - Overview: cannlytics/lims/lims.md
-        - Calculations: cannlytics/lims/calculations.md
-        - Certificates: cannlytics/lims/certificates.md
-        - Data: cannlytics/lims/data.md
-        - Quality Control: cannlytics/lims/qc.md
-        - Results: cannlytics/lims/results.md
-        - Samples: cannlytics/lims/samples.md
-        - Transfers: cannlytics/lims/transfers.md
-        # FIXME:
-        # - Worksheets: cannlytics/lims/worksheets.md
-      - Metrc:
-        - Overview: cannlytics/traceability/metrc.md
-        - Client: cannlytics/traceability/metrc-client.md
-        - Models: cannlytics/traceability/metrc-models.md
+    # - Modules:
+    #   - Firebase:
+    #     - Overview: cannlytics/firebase/firebase.md
+    #     - API reference: cannlytics/firebase/firebase-reference.md
+    #   - LIMS:
+    #     - Overview: cannlytics/lims/lims.md
+    #     - Calculations: cannlytics/lims/calculations.md
+    #     - Certificates: cannlytics/lims/certificates.md
+    #     - Data: cannlytics/lims/data.md
+    #     - Quality Control: cannlytics/lims/qc.md
+    #     - Results: cannlytics/lims/results.md
+    #     - Samples: cannlytics/lims/samples.md
+    #     - Transfers: cannlytics/lims/transfers.md
+    #     # FIXME:
+    #     # - Worksheets: cannlytics/lims/worksheets.md
+    #   - Metrc:
+    #     - Overview: cannlytics/traceability/metrc.md
+    #     - Client: cannlytics/traceability/metrc-client.md
+    #     - Models: cannlytics/traceability/metrc-models.md
       # - Utils:
       #   - Main Utils: cannlytics/utils/utils.md
       #   - Logistics: cannlytics/utils/logistics.md

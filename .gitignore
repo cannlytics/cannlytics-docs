@@ -114,3 +114,6 @@ tmp/
 
 # Ignore VS Code settings
 .vscode
+
+# Ignore local copy of cannlytics
+cannlytics/

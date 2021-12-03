@@ -1,0 +1,19 @@
+{
+  "name": "cannlytics-docs",
+  "productName": "Cannlytics Documentation",
+  "version": "1.1.5",
+  "license": "MIT",
+  "private": true,
+  "description": "The Cannlytics Website provides people with information about Cannlytics, cannabis analytics, and boasts a cannabis data market.",
+  "author": "Keegan Skeate <contact@cannlytics.com>",
+  "build": {
+    "productName": "Cannlytics Documentation"
+  },
+  "scripts": {
+    "start": "npm run install && npm run docs",
+    "install": "docker pull squidfunk/mkdocs-material && docker build -t squidfunk/mkdocs-material .",
+    "docs": "docker run --rm -it -p 8000:8000 -v \"%cd%\":/docs squidfunk/mkdocs-material",
+    "build": "firebase deploy --project cannlytics --only hosting:docs",
+    "publish": "npm run container && npm run cloud && npm run deploy"
+  }
+}

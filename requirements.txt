@@ -1,10 +1,14 @@
 # Cannlytics Documentation requirements
-# pip install -r requirements.txt
-mkdocstrings==0.15.0
-requests==2.25.1
-ulid-py==1.1.0
-beautifulsoup4==4.9.3
-django==3.2
-xlwings
+# Copyright (c) 2021 Cannlytics
+# Usage:
+#     pip install -r requirements.txt
+mkdocs-autorefs==0.3.0
+mkdocstrings==0.16.2
+# cannlytics==0.0.8
+# requests==2.26.0
+# ulid-py==1.1.0
+# beautifulsoup4==4.9.3
+# django==3.2
+# xlwings
 # cannlytics
 # git+https://github.com/cannlytics/cannlytics.git
