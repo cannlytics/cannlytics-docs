@@ -1,4 +1,4 @@
-::: cannlytics.traceability.metrc.exceptions
+::: cannlytics.metrc.models
     rendering:
       show_root_toc_entry: false
       show_root_heading: false
