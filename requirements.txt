@@ -12,3 +12,4 @@ mkdocstrings==0.16.2
 # xlwings
 # cannlytics
 # git+https://github.com/cannlytics/cannlytics.git
+pymdown-extensions>=10.0 # not directly required, pinned by Snyk to avoid a vulnerability
