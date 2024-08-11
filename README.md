@@ -1,8 +1,12 @@
 # Documentation <a name="documentation"></a>
 
-Documentation for Cannlytics is written in [Markdown](https://guides.github.com/features/mastering-markdown/) and lives in the `docs` folder. The configuration for the documentation is contained within `mkdocs.yml`. Building the documentation requires [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and [Docker](https://www.docker.com/get-started).
+You can read the Cannlytics documentation at [https://docs.cannlytics.com](https://docs.cannlytics.com).
 
 ## Writing documentation
+
+Documentation for Cannlytics is written in [Markdown](https://guides.github.com/features/mastering-markdown/) and lives in the `docs` folder. The configuration for the documentation is contained within `mkdocs.yml`. Building the documentation requires [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and [Docker](https://www.docker.com/get-started).
+
+## Building the documentation
 
 First, you will need to pull and build the Material for MKDocs Docker image:
 
