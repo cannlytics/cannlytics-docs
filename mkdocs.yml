@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Cannlytics <contact@cannlytics.com>
+# Copyright (c) 2023-2024 Cannlytics <contact@cannlytics.com>
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to
@@ -19,29 +19,23 @@
 # IN THE SOFTWARE.
 
 # Project information
-site_name: Cannlytics
+site_name: Cannlytics Documentation
 site_url: https://docs.cannlytics.com/
 site_author: Keegan Skeate
-site_description: >-
-  Cannlytics is simple, easy-to-use, end-to-end cannabis analytics software
-  designed to make data and information accessible. We believe that everyone in the
-  cannabis industry should be able to access rich, valuable data quickly and easily and
-  that everyone, especially yourself, will be better off for it.
-copyright: Copyright &copy; 2021 Cannlytics
+site_description: Cannlytics is a suite of tools that you can use to wrangle, standardize, and analyze cannabis data.
+copyright: Copyright &copy; 2020-2024 Cannlytics
 
 # Repository
 repo_name: Cannlytics
 repo_url: https://github.com/cannlytics/cannlytics
 edit_uri: ""
-docs_dir: docs
-site_dir: build
+docs_dir: ./
+site_dir: ./public/docs
 
 # Configuration
 theme:
   name: material
-  custom_dir: theme
-  # analytics:
-  #   gtag: G-ABC123
+  custom_dir: ./docs/theme
 
   # Static files
   static_templates:
@@ -77,9 +71,9 @@ theme:
       
 # Extensions
 markdown_extensions:
-  - markdown.extensions.toc:
-      slugify: !!python/name:pymdownx.slugs.uslugify
-      permalink: ""
+  # - markdown.extensions.toc:
+  #     slugify: !!python/name:pymdownx.slugs.uslugify
+  #     permalink: ""
   - markdown.extensions.admonition:
   - markdown.extensions.smarty:
       smart_quotes: false
@@ -92,15 +86,6 @@ markdown_extensions:
   - markdown.extensions.md_in_html:
   - pymdownx.tabbed:
   - pymdownx.superfences:
-  # - pymdownx.superfences:
-  #     preserve_tabs: true
-  #     custom_fences:
-  #       - name: mermaid
-  #         class: mermaid
-  #         format: !!python/name:pymdownx.superfences.fence_code_format
-  #       - name: math
-  #         class: arithmatex
-  #         format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
   - pymdownx.highlight:
       extend_pygments_lang:
         - name: php-inline
@@ -141,20 +126,19 @@ markdown_extensions:
   - pymdownx.keys:
       separator: "\uff0b"
   - pymdownx.details:
-  # - pymdownx.tabbed:
+  - pymdownx.tabbed:
   - pymdownx.saneheaders:
 
 # Customization
 extra:
   analytics:
     provider: google
-    # property: !ENV GOOGLE_ANALYTICS_KEY
     property: !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/cannlytics
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/cannlytics/
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/cannlytics/
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/company/cannlytics
 
@@ -162,134 +146,120 @@ extra:
 plugins:
   - autorefs
   - search
-  - mkdocstrings:
-      handlers:
-        python:
-          setup_commands:
-            - import sys
-            - from unittest.mock import MagicMock as mock
-            - sys.path.append('cannlytics')
-            - sys.modules["numpy"] = mock()
-            - sys.modules["pandas"] = mock()
-            - sys.modules["firebase_admin"] = mock()
-            - sys.modules["googlemaps"] = mock()
-            - sys.modules["google-cloud"] = mock()
-            - sys.modules["google-cloud-firestore"] = mock()
-            - sys.modules["ulid"] = mock()
-            - sys.modules["requests"] = mock()
-            - sys.modules["django"] = mock()
-            - sys.modules["xlwings"] = mock()
-            - sys.modules["dotenv"] = mock()
-            - sys.modules["enforce_typing"] = mock()
-            - sys.modules["pytz"] = mock()
-  - minify:
-      minify_html: true
+  - same-dir
+  - exclude:
+      glob:
+        - public/*
+        - node_modules/*
+        - cannlytics.egg-info/*
+        - dist/*
+        - build/*
+        - ai/*
+        - api/*[!m][!d]
+        - app/*
+        - cannlytics/*[!m][!d]
+        - datasets/*[!m][!d]
+        - functions/*
+        - lims/*
+        - metrc/*
+        - tests/*
+        - tools/*
+        - website/*
 
-# Site map
+# Index
 nav:
-  - Home: index.md
+
+  # About
+  #------------
+  # - Home: docs/index.md
 
   # About
   #------------
   - About:
-    - Overview: about/about.md
-    - FAQ: about/faq.md
-    - Support: about/support.md
-    - License: about/license.md
-    - Privacy policy: about/privacy-policy.md
-    - Security policy: about/security-policy.md
-    - Terms of service: about/terms-of-service.md
+    # - Overview: README.md
+    # - About: docs/about/about.md
+    # - FAQ: docs/about/faq.md
+    - Support: docs/about/support.md
+    - License: docs/about/license.md
+    - Privacy policy: docs/about/privacy-policy.md
+    - Security policy: docs/about/security-policy.md
+    - Terms of service: docs/about/terms-of-service.md
+
+  # Data
+  #------------
+  # - Data:
+  #   - Overview: datasets/readme.md
+  #   - Cannabis Licenses: datasets/cannabis_licenses/readme.md
+  #   # - Cannabis Patents: datasets/cannabis_patents/readme.md
+  #   # - Cannabis Sales: datasets/cannabis_sales/readme.md
+  #   # - Cannabis Strains: datasets/cannabis_strains/readme.md
+  #   - Cannabis Tests: datasets/cannabis_tests/readme.md
 
   # API
   #------------
-  - API:
-    - Overview: api/about.md
-    # - Getting Started: api/get-started.md
-    - Authentication: api/authentication.md
-    - Endpoints:
-      - Analyses: api/endpoints/analyses.md
-      - Analytes: api/endpoints/analytes.md
-      - Areas: api/endpoints/areas.md
-      - Contacts: api/endpoints/contacts.md
-      - Instruments: api/endpoints/instruments.md
-      - Inventory: api/endpoints/inventory.md
-      # - Invoices: api/endpoints/invoices.md
-      - Measurements: api/endpoints/measurements.md
-      - Organizations: api/endpoints/organizations.md
-      - Projects: api/endpoints/projects.md
-      - Results: api/endpoints/results.md
-      - Samples: api/endpoints/samples.md
-      - Settings: api/endpoints/settings.md
-      - Traceability: api/endpoints/traceability.md
-      - Transfers: api/endpoints/transfers.md
-      - Users: api/endpoints/users.md
-  
+  # - API:
+  #   - Overview: api/readme.md
+  #   # - Authentication: api/auth/readme.md
+  #   - AI:
+  #     # - Overview: api/ai/readme.md
+  #     - Recipes: api/ai/recipes.md
+  #   - Data:
+  #     - COAs: api/data/coas.md
+  #     # - Licenses: api/data/licenses.md
+  #     - Receipts: api/data/receipts.md
+  #     # - Sales: api/data/sales.md
+  #     - Strains: api/data/strains.md
+  #   - Stats:
+  #     - Effects and Aromas: api/stats/skunkfx.md
+  #     # TODO: Document personality test API.
+  #   - Metrc: api/metrc/readme.md
+  #   # - Users: api/users/readme.md
+  #   # - Organizations: api/organizations/readme.md
+  #   # - Settings: api/settings/readme.md
+    
+  # Cannlytics
+  #---------------
+  # - Open Source:
+  #   - Overview: cannlytics/readme.md
+  #   - Data:
+  #     - Overview: cannlytics/data/readme.md
+  #     - CCRS: cannlytics/data/ccrs/readme.md
+  #     - COAs: cannlytics/data/coas/readme.md
+  #     # - Licenses: cannlytics/data/coas/readme.md
+  #     # - Market: cannlytics/data/market/readme.md
+  #     - Sales and Receipts: cannlytics/data/sales/readme.md
+  #     - Strains: cannlytics/data/strains/readme.md
+  #   # - Authentication: cannlytics/auth/readme.md
+  #   # TODO: Document Functions.
+  #   - Firebase: cannlytics/firebase/readme.md
+  #   # - LIMS: cannlytics/lims/readme.md
+  #   - Metrc: cannlytics/metrc/readme.md
+  #   # - Models: cannlytics/models/readme.md
+  #   # - Stats: cannlytics/stats/readme.md
+  #   - Utils: cannlytics/utils/readme.md
+
   # Users
   #------------
-  - Users:
-    - Getting Started: console/get-started.md
-    - Authentication: console/authentication.md
-    - Analyses: console/lims/analyses.md
-    - Analytes: console/lims/analytes.md
-    - Areas: console/lims/areas.md
-    - Contacts: console/lims/contacts.md
-    - Data:
-      # FIXME: Touchup
-      # - Overview: console/lims/data/data.md
-      - Data Collection: console/lims/data/data_collection.md
-      # - Data Analysis: console/lims/data/data_analysis.md
-      # - Data Review: console/lims/data/data_review.md
-      # - Importing and exporting data: console/lims/data/exports.md
-      # - Generating CoAs: console/lims/generating_coas.md
-      # - Posting Results: console/lims/posting_results.md
-      # - Quality Control: console/lims/qc.md
-      - Logs: console/lims/data/logs.md
-    - Instruments: console/lims/instruments.md
-    - Inventory: console/lims/inventory.md
-    - Invoices: console/lims/invoices.md
-    - Organizations: console/lims/organizations.md
-    - Projects: console/lims/projects.md
-    - Results: console/lims/results.md
-    - Samples: console/lims/samples.md
-    - Transfers: console/lims/transfers.md
-    - Traceability: console/lims/traceability.md
-    - Worksheets: console/lims/worksheets.md
-    - Settings: console/lims/settings.md
+  # - Users:
+  #   - Getting Started: console/get-started.md
+  #   - Authentication: console/authentication.md
+  #   - Quickstart Guide
+  #   - Examples
   
   # Developers
   #------------
-  - Developers:
-    - Dev:
-      - Getting Started: developers/dev/development.md
-      - Installation: developers/dev/installation.md
-      - Contributing: developers/dev/contributing.md
-      - Packaging: developers/dev/packaging.md
-      - Publishing: developers/dev/publishing.md
-      - Roadmap: developers/dev/roadmap.md
-      - Security: developers/dev/security.md
-      - Testing: developers/dev/testing.md
-      - Version control: developers/dev/version_control.md
-    - SOPs:
-      - Control of Documents: developers/sops/control-of-documents.md
-    - Modules:
-      - Firebase:
-        - Overview: cannlytics/firebase/firebase.md
-        - API reference: cannlytics/firebase/firebase-reference.md
-      - LIMS:
-        - Overview: cannlytics/lims/lims.md
-        - Calculations: cannlytics/lims/calculations.md
-        - Certificates: cannlytics/lims/certificates.md
-        - Data: cannlytics/lims/data.md
-        - Quality Control: cannlytics/lims/qc.md
-        - Results: cannlytics/lims/results.md
-        - Samples: cannlytics/lims/samples.md
-        - Transfers: cannlytics/lims/transfers.md
-        # FIXME:
-        # - Worksheets: cannlytics/lims/worksheets.md
-      - Metrc:
-        - Overview: cannlytics/metrc/metrc.md
-        - Client: cannlytics/metrc/metrc-client.md
-        - Models: cannlytics/metrc/metrc-models.md
-      - Utils:
-        - Main Utils: cannlytics/utils/utils.md
-        - Logistics: cannlytics/utils/logistics.md
+  - Contributing:
+    - Overview: docs/developers/contributing.md
+    # - Overview: README.md
+    # - Contributing: docs/developers/contributing.md
+    - Getting Started: docs/developers/development.md
+    - Testing: docs/developers/testing.md
+    - Security: docs/developers/security.md
+    # - Control of Documents: docs/developers/control-of-documents.md
+    - Documentation: docs/developers/documentation.md
+    # - Data Collection: docs/developers/data-collection.md
+    # - COA Parsing: docs/developers/coa-parsing.md
+    - Datasets: docs/developers/datasets.md
+    - Packaging: docs/developers/packaging.md
+    - Publishing: docs/developers/publishing.md
+    - Change Log: docs/changelog.md
