@@ -47,6 +47,12 @@ Next, do your modifications and track all of your changes, including any large d
 git lfs track *.csv
 git add *.csv
 git commit -m "Added all `.csv` files"
+git lfs track *.xlsx
+git add *.xlsx
+git commit -m "Added all `.xlsx` files"
+git lfs track *.zip
+git add *.zip
+git commit -m "Added all `.zip` files"
 git add --all
 git status
 git commit -m "Updated `cannabis_results` dataset."
